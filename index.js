@@ -43,7 +43,13 @@ app.post('/', async (req, res) => {
         console.log('Connected to MongoDB');
 
         try {
-          user.save();
+          user.save()
+          .then(() => {
+            res.send(`<h1>Document  Added</h1>`);
+          })
+          .catch(() => {
+            
+          });
         } catch (error) {
           console.log(error);
         }
@@ -59,7 +65,7 @@ app.post('/', async (req, res) => {
   
   
   // send a response to the user
-  res.send(`<h1>Document  Added</h1>`);
+  
 });
 
 app.listen(port, () => {
