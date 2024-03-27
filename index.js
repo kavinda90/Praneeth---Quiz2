@@ -38,7 +38,7 @@ app.post('/', async (req, res) => {
 
   // connect to the database and log the connection
 
-   await mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+   mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
         console.log('Connected to MongoDB');
 
