@@ -38,7 +38,7 @@ app.post('/', async (req, res) => {
 
   // connect to the database and log the connection
 
-   mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
+   await mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
         console.log('Connected to MongoDB');
         
@@ -47,11 +47,11 @@ app.post('/', async (req, res) => {
         console.error('Error connecting to MongoDB:', error);
     });
 
-   try {
-    await user.save();
-  } catch (error) {
-    console.log(error);
-  }
+    try {
+      await user.save();
+    } catch (error) {
+      console.log(error);
+    }
 
   // add the data to the database
   
